@@ -10,10 +10,11 @@ namespace PadawansTask11
             {
                 throw new ArgumentNullException();
             }
-            if (accuracy < 0)
+            if (accuracy < 0 ||accuracy > 1)
             {
-                throw new ArgumentException();
+                throw new ArgumentOutOfRangeException();
             }
+            bool empty = true;
             for (int i = 0; i < array.Length; i++)
             {
                 double right = 0;
@@ -29,6 +30,14 @@ namespace PadawansTask11
                 {
                     return i;
                 }
+                if (array[i] != 0)
+                {
+                    empty = false;
+                }
+            }
+            if(empty==true)
+            {
+                throw new ArgumentException();
             }
             return null;
         }
